@@ -1,0 +1,16 @@
+# Godot 4 specific ignores
+.godot/
+bin/
+obj/
+export_presets.cfg
+.import/
+*.tmp
+
+# User-specific settings (keep these out of version control)
+.vscode/
+.idea/
+.vs/
+
+# OS generated files
+.DS_Store
+Thumbs.db
