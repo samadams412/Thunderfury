@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://b54yupaqnicoc"]
+
+[ext_resource type="Script" uid="uid://bflp4isnwoscs" path="res://Enemy/enemy.gd" id="1_px1sc"]
+[ext_resource type="Texture2D" uid="uid://b7gf22jdgckwd" path="res://Textures/Enemy/goblin_enemy_small_sheet.png" id="2_px1sc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
+height = 22.0
+
+[sub_resource type="Animation" id="Animation_px1sc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_am0pq"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eqilm"]
+_data = {
+&"RESET": SubResource("Animation_px1sc"),
+&"walk": SubResource("Animation_am0pq")
+}
+
+[node name="enemy_goblin" type="CharacterBody2D" unique_id=860349946]
+motion_mode = 1
+script = ExtResource("1_px1sc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=550917710]
+texture = ExtResource("2_px1sc")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=461795252]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_g4v7s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=503468172]
+libraries/ = SubResource("AnimationLibrary_eqilm")

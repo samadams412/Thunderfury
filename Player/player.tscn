@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://dfvxf8b50pr3u"]
 
 [ext_resource type="Script" uid="uid://ca1femql4he46" path="res://Player/player.gd" id="1_btcbx"]
-[ext_resource type="Texture2D" uid="uid://cpicwb4m6ymjb" path="res://Textures/Items/Weapons/Thunderfury.png" id="2_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://br7kp4ca1qp51" path="res://Textures/Player/player_sprite1.png" id="2_gwnis"]
 
-[node name="Player" type="CharacterBody2D" unique_id=1468292788]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
+radius = 7.0
+height = 22.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1468292788 groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_btcbx")
 
@@ -12,12 +15,13 @@ script = ExtResource("1_btcbx")
 texture = ExtResource("2_gwnis")
 hframes = 2
 
-[node name="WeaponPivot" type="Node2D" parent="." unique_id=1486583204]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1527704918]
 
-[node name="WeaponSprite2D" type="Sprite2D" parent="WeaponPivot" unique_id=1333611673]
-position = Vector2(13, -7)
-scale = Vector2(0.3, 0.29)
-texture = ExtResource("2_4ntmi")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=646633335]
+position = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_g4v7s")
 
-[node name="Marker2D" type="Marker2D" parent="WeaponPivot/WeaponSprite2D" unique_id=1440588432]
-position = Vector2(3.3333333, -44.827587)
+[node name="walkTimer" type="Timer" parent="." unique_id=1286630490]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
