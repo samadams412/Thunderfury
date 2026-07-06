@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var movement_speed = 20.0
+@export var hp = 10
 # Add this: Set this to true for Ragnaros, false for the Goblin in the Inspector
 @export var use_directional_animations : bool = false 
 
@@ -33,3 +34,9 @@ func _physics_process(_delta):
 			sprite.flip_h = true
 		elif direction.x < -0.1:
 			sprite.flip_h = false
+
+
+func _on_hurt_box_hurt(damage):
+	hp -= damage
+	if hp <= 0:
+		queue_free()

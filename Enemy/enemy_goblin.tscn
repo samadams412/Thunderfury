@@ -2,9 +2,12 @@
 
 [ext_resource type="Script" uid="uid://bflp4isnwoscs" path="res://Enemy/enemy.gd" id="1_px1sc"]
 [ext_resource type="Texture2D" uid="uid://b7gf22jdgckwd" path="res://Textures/Enemy/goblin_enemy_small_sheet.png" id="2_px1sc"]
+[ext_resource type="PackedScene" uid="uid://cv2wtwedw7uk1" path="res://Utility/hurt_box.tscn" id="3_xwt20"]
+[ext_resource type="PackedScene" uid="uid://2uh1tenn1so2" path="res://Utility/hit_box.tscn" id="4_oko62"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
-height = 22.0
+radius = 9.0
+height = 20.0
 
 [sub_resource type="Animation" id="Animation_px1sc"]
 length = 0.001
@@ -44,6 +47,12 @@ _data = {
 &"walk": SubResource("Animation_am0pq")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oko62"]
+size = Vector2(29, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8amy"]
+size = Vector2(22, 24)
+
 [node name="enemy_goblin" type="CharacterBody2D" unique_id=860349946]
 motion_mode = 1
 script = ExtResource("1_px1sc")
@@ -53,8 +62,28 @@ texture = ExtResource("2_px1sc")
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=461795252]
-position = Vector2(0, -2)
+position = Vector2(0, -3)
 shape = SubResource("CapsuleShape2D_g4v7s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=503468172]
 libraries/ = SubResource("AnimationLibrary_eqilm")
+
+[node name="HurtBox" parent="." unique_id=1799829518 instance=ExtResource("3_xwt20")]
+visible = false
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="HurtBox" index="0" unique_id=497110057]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_oko62")
+
+[node name="HitBox" parent="." unique_id=1298357648 instance=ExtResource("4_oko62")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HitBox" index="0" unique_id=319108404]
+position = Vector2(-1, -2)
+shape = SubResource("RectangleShape2D_x8amy")
+
+[editable path="HurtBox"]
+[editable path="HitBox"]

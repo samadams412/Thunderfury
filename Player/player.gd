@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var movement_speed = 60.0
+var hp = 50
 @onready var sprite = $Sprite2D
 @onready var walkTimer = get_node("%walkTimer")
 
@@ -27,3 +28,11 @@ func movement():
 	# Physics
 	velocity = mov * movement_speed
 	move_and_slide()
+
+
+func _on_hurt_box_hurt(damage):
+	hp -= damage
+	print("Player HP: ", hp)
+	if hp <= 0:
+		# For now, just reload the scene or print a death message
+		get_tree().reload_current_scene()
