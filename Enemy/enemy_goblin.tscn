@@ -54,6 +54,8 @@ size = Vector2(29, 29)
 size = Vector2(22, 24)
 
 [node name="enemy_goblin" type="CharacterBody2D" unique_id=860349946]
+collision_layer = 5
+collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_px1sc")
 
@@ -69,7 +71,6 @@ shape = SubResource("CapsuleShape2D_g4v7s")
 libraries/ = SubResource("AnimationLibrary_eqilm")
 
 [node name="HurtBox" parent="." unique_id=1799829518 instance=ExtResource("3_xwt20")]
-visible = false
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="HurtBox" index="0" unique_id=497110057]
@@ -82,6 +83,8 @@ collision_layer = 2
 [node name="CollisionShape2D" parent="HitBox" index="0" unique_id=319108404]
 position = Vector2(-1, -2)
 shape = SubResource("RectangleShape2D_x8amy")
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 
 [editable path="HurtBox"]
 [editable path="HitBox"]

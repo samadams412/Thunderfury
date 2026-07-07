@@ -18,6 +18,10 @@ config/name="Survivors Clone"
 run/main_scene="uid://cssjk0vpndtae"
 config/features=PackedStringArray("4.7", "Mobile")
 
+[global_group]
+
+attack=""
+
 [input]
 
 up={

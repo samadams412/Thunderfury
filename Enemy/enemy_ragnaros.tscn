@@ -72,6 +72,8 @@ size = Vector2(82, 99)
 size = Vector2(72, 93)
 
 [node name="enemy_ragnaros" type="CharacterBody2D" unique_id=860349946]
+collision_layer = 5
+collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_xcnyd")
 use_directional_animations = true
