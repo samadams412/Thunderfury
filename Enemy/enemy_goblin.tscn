@@ -70,7 +70,6 @@ libraries/ = SubResource("AnimationLibrary_eqilm")
 
 [node name="HurtBox" parent="." unique_id=1799829518 instance=ExtResource("3_xwt20")]
 visible = false
-collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="HurtBox" index="0" unique_id=497110057]
@@ -79,7 +78,6 @@ shape = SubResource("RectangleShape2D_oko62")
 
 [node name="HitBox" parent="." unique_id=1298357648 instance=ExtResource("4_oko62")]
 collision_layer = 2
-collision_mask = 2
 
 [node name="CollisionShape2D" parent="HitBox" index="0" unique_id=319108404]
 position = Vector2(-1, -2)

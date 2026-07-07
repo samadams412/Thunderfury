@@ -4,8 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://yeqdtdttm2lh" path="res://Textures/terracota_palette.png" id="2_036b0"]
 [ext_resource type="Texture2D" uid="uid://b40sjxxj8qoq5" path="res://Textures/dirt_full_TEST.png" id="3_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://dfvxf8b50pr3u" path="res://Player/player.tscn" id="4_pkg7o"]
-[ext_resource type="PackedScene" uid="uid://b54yupaqnicoc" path="res://Enemy/enemy_goblin.tscn" id="5_036b0"]
-[ext_resource type="PackedScene" uid="uid://de037l6gjvjbs" path="res://Enemy/enemy_ragnaros.tscn" id="6_dwbse"]
+[ext_resource type="PackedScene" uid="uid://bd328vods7y4u" path="res://Utility/enemy_spawner.tscn" id="5_036b0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("1_aqk2v")
@@ -25,8 +24,4 @@ region_rect = Rect2(0, 0, 4000, 4000)
 
 [node name="Player" parent="." unique_id=1468292788 instance=ExtResource("4_pkg7o")]
 
-[node name="enemy_goblin" parent="." unique_id=860349946 instance=ExtResource("5_036b0")]
-position = Vector2(237, -100)
-
-[node name="enemy_ragnaros" parent="." unique_id=1476110234 instance=ExtResource("6_dwbse")]
-position = Vector2(141, 79)
+[node name="EnemySpawner" parent="." unique_id=238885105 instance=ExtResource("5_036b0")]
