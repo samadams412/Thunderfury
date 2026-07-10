@@ -1,100 +1,73 @@
 extends CharacterBody2D
 
-var movement_speed = 60.0
+@export var movement_speed = 60.0
 var hp = 50
-#Attacks
-var iceSpear = preload("res://Player/Attack/ice_spear.tscn")
-#AttackNodes
-@onready var iceSpearTimer = get_node("%IceSpearTimer")
-@onready var iceSpearAttackTimer = get_node("%IceSpearAttackTimer")
 
-#IceSpear
-var icespear_ammo = 0
-var icespear_baseammo = 1 #increase this to shoot multiple
-var icespear_attackspeed = 1.5
-var icespear_level = 1
-
-#EnemyRelated
+# Projectile Setup
+@export var projectile_scene : PackedScene 
+@onready var aim_point = $AimPoint # Ensure this node exists under your Player
+@onready var fire_timer = $FireRateTimer # Add a Timer node as a child to Player
+@onready var anim_player = $AnimationPlayer
+# EnemyRelated
 var enemy_close = []
 
 @onready var sprite = $Sprite2D
 @onready var walkTimer = get_node("%walkTimer")
 
-func _ready():
-	pass
-	#attack()
-
 func _physics_process(_delta):
 	movement()
 	
-func attack():
-	if icespear_level > 0:
-		iceSpearTimer.wait_time = icespear_attackspeed
-		if iceSpearTimer.is_stopped():
-			iceSpearTimer.start()
+	# Aim the AimPoint at the mouse
+	aim_point.look_at(get_global_mouse_position())
+	
+	# Handle firing
+	if Input.is_action_pressed("click") and fire_timer.is_stopped():
+		shoot()
+
+func shoot():
+	if projectile_scene:
+		var proj = projectile_scene.instantiate()
+		get_tree().root.add_child(proj)
+		
+		# Set position and rotation from the AimPoint
+		proj.global_position = aim_point.global_position
+		proj.rotation = aim_point.global_rotation
+		
+		fire_timer.start()
+
+
 
 func movement():
-	# Optimized vector movement
 	var mov = Input.get_vector("left", "right", "up", "down")
 	
-	# Handle Sprite Flipping
-	if mov.x > 0:
-		sprite.flip_h = true
-	elif mov.x < 0:
-		sprite.flip_h = false
+	# Handle Sprite Flipping and Animation Selection
+	if mov.x < 0:
+		sprite.flip_h = false 
+		aim_point.position = Vector2(-15, 3)
+		anim_player.play("walk_left")
 		
-	# Animation Logic (Tutorial style)
-	if mov != Vector2.ZERO:
-		if walkTimer.is_stopped():
-			# This logic cycles through your frames
-			sprite.frame = 0 if sprite.frame >= sprite.hframes - 1 else sprite.frame + 1
-			walkTimer.start()
+	elif mov.x > 0:
+		sprite.flip_h = false # 
+		aim_point.position = Vector2(15, 3)
+		anim_player.play("walk_right")
+		
 	
-	# Physics
+	# Handle Idle (when not moving)
+	if mov == Vector2.ZERO:
+		anim_player.stop() # Add Idle animation
+	
 	velocity = mov * movement_speed
 	move_and_slide()
-
 
 func _on_hurt_box_hurt(damage):
 	hp -= damage
 	print("Player HP: ", hp)
 	if hp <= 0:
-		# For now, just reload the scene or print a death message
 		get_tree().reload_current_scene()
-
-# This is essentially loading the ammunition?
-func _on_ice_spear_timer_timeout() -> void:
-	return
-	icespear_ammo += icespear_baseammo
-	iceSpearAttackTimer.start()
-
-# This is shooting the ammo?
-func _on_ice_spear_attack_timer_timeout() -> void:
-	return
-	if icespear_ammo > 0:
-		var icespear_attack = iceSpear.instantiate()
-		icespear_attack.position = position
-		icespear_attack.target = get_random_target() #Player made function
-		icespear_attack.level = icespear_level
-		add_child(icespear_attack)
-		icespear_ammo -=1
-		if icespear_ammo > 0:
-			iceSpearAttackTimer.start()
-		else:
-			iceSpearAttackTimer.stop()
-		
-func get_random_target():
-	return
-	if enemy_close.size() > 0:
-		return enemy_close.pick_random().global_position
-	else: #if nothing returns just shoot UP
-		return Vector2.UP
-
 
 func _on_enemy_detection_area_body_entered(body):
 	if not enemy_close.has(body):
 		enemy_close.append(body)
-
 
 func _on_enemy_detection_area_body_exited(body):
 	if enemy_close.has(body):

@@ -23,5 +23,6 @@ region_enabled = true
 region_rect = Rect2(0, 0, 4000, 4000)
 
 [node name="Player" parent="." unique_id=1468292788 instance=ExtResource("4_pkg7o")]
+movement_speed = 60.0
 
 [node name="EnemySpawner" parent="." unique_id=238885105 instance=ExtResource("5_036b0")]
