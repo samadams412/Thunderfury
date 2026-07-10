@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b63dmuh2j7s4r"]
+
+[ext_resource type="Script" uid="uid://7se36yut6b33" path="res://Utility/aim_guide.gd" id="1_c83qj"]
+[ext_resource type="Texture2D" uid="uid://b7b7e3u48fhuq" path="res://Textures/Items/Weapons/plus_31.png" id="2_8f01p"]
+
+[node name="AimGuide" type="Node2D" unique_id=372380691]
+script = ExtResource("1_c83qj")
+
+[node name="Crosshair" type="Sprite2D" parent="." unique_id=1179977228]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_8f01p")

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bd328vods7y4u"]
 
-[ext_resource type="Script" uid="uid://gmhke6f1fd1q" path="res://enemy_spawner.gd" id="1_v14hi"]
+[ext_resource type="Script" uid="uid://gmhke6f1fd1q" path="res://Utility/enemy_spawner.gd" id="1_v14hi"]
 [ext_resource type="Script" uid="uid://cabh720n5vqol" path="res://Utility/spawn_info.gd" id="2_5yyhq"]
 [ext_resource type="PackedScene" uid="uid://b54yupaqnicoc" path="res://Enemy/enemy_goblin.tscn" id="3_nn1td"]
 

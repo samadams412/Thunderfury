@@ -1,16 +1,19 @@
 [gd_scene format=3 uid="uid://cssjk0vpndtae"]
 
-[ext_resource type="Shader" uid="uid://bki08lph1xv8a" path="res://palette_swap.gdshader" id="1_aqk2v"]
+[ext_resource type="Shader" uid="uid://bki08lph1xv8a" path="res://Utility/palette_swap.gdshader" id="1_aqk2v"]
+[ext_resource type="Script" uid="uid://ccxuuydqgaf5x" path="res://world.gd" id="1_pkg7o"]
 [ext_resource type="Texture2D" uid="uid://yeqdtdttm2lh" path="res://Textures/terracota_palette.png" id="2_036b0"]
 [ext_resource type="Texture2D" uid="uid://b40sjxxj8qoq5" path="res://Textures/dirt_full_TEST.png" id="3_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://dfvxf8b50pr3u" path="res://Player/player.tscn" id="4_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://bd328vods7y4u" path="res://Utility/enemy_spawner.tscn" id="5_036b0"]
+[ext_resource type="PackedScene" uid="uid://b63dmuh2j7s4r" path="res://Utility/aim_guide.tscn" id="7_gbfbk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("1_aqk2v")
 shader_parameter/palette = ExtResource("2_036b0")
 
 [node name="World" type="Node2D" unique_id=340984577]
+script = ExtResource("1_pkg7o")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=800145668]
 texture_filter = 2
@@ -23,6 +26,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 4000, 4000)
 
 [node name="Player" parent="." unique_id=1468292788 instance=ExtResource("4_pkg7o")]
-movement_speed = 60.0
 
 [node name="EnemySpawner" parent="." unique_id=238885105 instance=ExtResource("5_036b0")]
+
+[node name="AimGuide" parent="." unique_id=372380691 instance=ExtResource("7_gbfbk")]

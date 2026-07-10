@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://o4cgug6nlvxp"
-path="res://.godot/imported/sword.png-979d87b34967510545433b49f3482194.ctex"
+uid="uid://bagx5yjdoq0s4"
+path="res://.godot/imported/spirit_healer.png-70f3bc53135f752e71f976395288c10e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Items/Weapons/sword.png"
-dest_files=["res://.godot/imported/sword.png-979d87b34967510545433b49f3482194.ctex"]
+source_file="res://Textures/spirit_healer.png"
+dest_files=["res://.godot/imported/spirit_healer.png-70f3bc53135f752e71f976395288c10e.ctex"]
 
 [params]
 
