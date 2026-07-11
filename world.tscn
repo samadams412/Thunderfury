@@ -2,15 +2,33 @@
 
 [ext_resource type="Shader" uid="uid://bki08lph1xv8a" path="res://Utility/palette_swap.gdshader" id="1_aqk2v"]
 [ext_resource type="Script" uid="uid://ccxuuydqgaf5x" path="res://world.gd" id="1_pkg7o"]
-[ext_resource type="Texture2D" uid="uid://yeqdtdttm2lh" path="res://Textures/terracota_palette.png" id="2_036b0"]
-[ext_resource type="Texture2D" uid="uid://b40sjxxj8qoq5" path="res://Textures/dirt_full_TEST.png" id="3_aqk2v"]
+[ext_resource type="Texture2D" uid="uid://yeqdtdttm2lh" path="res://Textures/Environment/terracota_palette.png" id="2_036b0"]
+[ext_resource type="Texture2D" uid="uid://b40sjxxj8qoq5" path="res://Textures/Environment/dirt_full_TEST.png" id="3_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://dfvxf8b50pr3u" path="res://Player/player.tscn" id="4_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://bd328vods7y4u" path="res://Utility/enemy_spawner.tscn" id="5_036b0"]
+[ext_resource type="Script" uid="uid://cabh720n5vqol" path="res://Utility/spawn_info.gd" id="6_gbfbk"]
 [ext_resource type="PackedScene" uid="uid://b63dmuh2j7s4r" path="res://Utility/aim_guide.tscn" id="7_gbfbk"]
+[ext_resource type="PackedScene" uid="uid://b54yupaqnicoc" path="res://Enemy/enemy_goblin.tscn" id="7_ioo17"]
+[ext_resource type="PackedScene" uid="uid://de037l6gjvjbs" path="res://Enemy/enemy_ragnaros.tscn" id="8_wse8f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("1_aqk2v")
 shader_parameter/palette = ExtResource("2_036b0")
+
+[sub_resource type="Resource" id="Resource_qj06w"]
+script = ExtResource("6_gbfbk")
+time_end = 60
+enemy = ExtResource("7_ioo17")
+enemy_num = 1
+enemy_spawn_delay = 1
+metadata/_custom_type_script = "uid://cabh720n5vqol"
+
+[sub_resource type="Resource" id="Resource_c83qj"]
+script = ExtResource("6_gbfbk")
+time_end = 1
+enemy = ExtResource("8_wse8f")
+enemy_num = 1
+metadata/_custom_type_script = "uid://cabh720n5vqol"
 
 [node name="World" type="Node2D" unique_id=340984577]
 script = ExtResource("1_pkg7o")
@@ -28,5 +46,6 @@ region_rect = Rect2(0, 0, 4000, 4000)
 [node name="Player" parent="." unique_id=1468292788 instance=ExtResource("4_pkg7o")]
 
 [node name="EnemySpawner" parent="." unique_id=238885105 instance=ExtResource("5_036b0")]
+spawns = Array[ExtResource("6_gbfbk")]([SubResource("Resource_qj06w"), SubResource("Resource_c83qj")])
 
 [node name="AimGuide" parent="." unique_id=372380691 instance=ExtResource("7_gbfbk")]

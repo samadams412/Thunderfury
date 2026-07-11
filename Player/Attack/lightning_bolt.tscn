@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dls3aub4dravu"]
 
-[ext_resource type="Script" uid="uid://dxtcgjp1mqf58" path="res://Player/lightning_bolt.gd" id="1_dge2n"]
+[ext_resource type="Script" uid="uid://dxtcgjp1mqf58" path="res://Player/Attack/lightning_bolt.gd" id="1_dge2n"]
 [ext_resource type="Texture2D" uid="uid://cbbrckc858gwy" path="res://Textures/Items/Weapons/tornado.png" id="2_dge2n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s7hsr"]

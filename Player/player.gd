@@ -28,13 +28,13 @@ func movement():
 	
 	# Handle Sprite/Weapon Logic
 	if mov.x < 0:
-		sprite.flip_h = false # Assuming row 0 is left
-		weapon.position = Vector2(-15, -1) 
+		sprite.flip_h = false # Facing left
+		weapon.position = Vector2(-17, -3) 
 		weapon.is_facing_right = false
 		anim_player.play("walk_left")
 	elif mov.x > 0:
-		sprite.flip_h = false # Assuming row 1 is right
-		weapon.position = Vector2(15, -1) 
+		sprite.flip_h = false # Facing right
+		weapon.position = Vector2(16, -3) 
 		weapon.is_facing_right = true
 		anim_player.play("walk_right")
 		
@@ -45,7 +45,11 @@ func movement():
 			anim_player.play("walk_left")
 	
 	if mov == Vector2.ZERO:
-		anim_player.stop() 
+		if not weapon.is_facing_right:
+			anim_player.play("idle_left")
+		elif weapon.is_facing_right:
+			anim_player.play("idle_right")
+			
 	
 	velocity = mov * movement_speed
 	move_and_slide()

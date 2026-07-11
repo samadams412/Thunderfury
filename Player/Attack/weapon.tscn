@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c5ub5seyx4c67"]
 
 [ext_resource type="Texture2D" uid="uid://cpicwb4m6ymjb" path="res://Textures/Items/Weapons/Thunderfury.png" id="1_016xb"]
-[ext_resource type="Script" uid="uid://dorbikqtgghdx" path="res://Player/weapon.gd" id="1_ufaed"]
+[ext_resource type="Script" uid="uid://dorbikqtgghdx" path="res://Player/Attack/weapon.gd" id="1_ufaed"]
 
 [node name="Weapon" type="Node2D" unique_id=1271681541]
 z_index = -1
@@ -9,8 +9,12 @@ rotation = -0.2617994
 script = ExtResource("1_ufaed")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=203107587]
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_016xb")
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1210005285]
 position = Vector2(1, -18)
+
+[node name="FireRateTimer" type="Timer" parent="." unique_id=1704458174]
+wait_time = 0.5
+one_shot = true

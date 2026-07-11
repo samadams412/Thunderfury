@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dfvxf8b50pr3u"]
 
 [ext_resource type="Script" uid="uid://ca1femql4he46" path="res://Player/player.gd" id="1_btcbx"]
+[ext_resource type="Texture2D" uid="uid://ce103q4p7othx" path="res://Textures/Player/Orc_Player_Sheet.png" id="2_fhl08"]
 [ext_resource type="PackedScene" uid="uid://dls3aub4dravu" path="res://Player/Attack/lightning_bolt.tscn" id="2_k53q1"]
 [ext_resource type="PackedScene" uid="uid://cv2wtwedw7uk1" path="res://Utility/hurt_box.tscn" id="3_btcbx"]
-[ext_resource type="Texture2D" uid="uid://bstc4ubdph0ly" path="res://Textures/Player/orc_sprite_sheet_1.png" id="3_gwnis"]
-[ext_resource type="PackedScene" uid="uid://c5ub5seyx4c67" path="res://Player/weapon.tscn" id="4_gwnis"]
+[ext_resource type="PackedScene" uid="uid://c5ub5seyx4c67" path="res://Player/Attack/weapon.tscn" id="4_gwnis"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
 radius = 7.0
@@ -17,7 +17,6 @@ size = Vector2(17, 35)
 radius = 662.60474
 
 [sub_resource type="Animation" id="Animation_gwnis"]
-length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -28,12 +27,44 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_vtle1"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.11, 0.22, 0.33, 0.44, 0.55, 0.66, 0.77, 0.88),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11, 12, 13, 14]
+}
+
+[sub_resource type="Animation" id="Animation_od3ui"]
+resource_name = "idle_right"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.11, 0.22, 0.33, 0.44, 0.55, 0.66, 0.77, 0.88),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [15, 16, 17, 18, 19, 20, 21, 22, 23]
 }
 
 [sub_resource type="Animation" id="Animation_k53q1"]
 resource_name = "walk_left"
-length = 0.6
+length = 0.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -42,15 +73,15 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.24, 0.36, 0.48),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.16, 0.33),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4]
+"values": [0, 1, 2]
 }
 
 [sub_resource type="Animation" id="Animation_fhl08"]
 resource_name = "walk_right"
-length = 0.6
+length = 0.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -59,15 +90,17 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.12, 0.24, 0.36, 0.48),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.16, 0.33),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [5, 6, 7, 8, 9]
+"values": [3, 4, 5]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fhl08"]
 _data = {
 &"RESET": SubResource("Animation_gwnis"),
+&"idle_left": SubResource("Animation_vtle1"),
+&"idle_right": SubResource("Animation_od3ui"),
 &"walk_left": SubResource("Animation_k53q1"),
 &"walk_right": SubResource("Animation_fhl08")
 }
@@ -79,12 +112,13 @@ script = ExtResource("1_btcbx")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=507757624]
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("3_gwnis")
-hframes = 5
-vframes = 2
+texture = ExtResource("2_fhl08")
+hframes = 6
+vframes = 4
+frame = 6
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1527704918]
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(2, 2)
 position_smoothing_speed = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=646633335]
@@ -128,19 +162,16 @@ visible = false
 position = Vector2(15, 3)
 rotation = -1.5707964
 
-[node name="FireRateTimer" type="Timer" parent="." unique_id=1485013812]
-wait_time = 0.58
-one_shot = true
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1982486513]
 libraries/ = SubResource("AnimationLibrary_fhl08")
 
 [node name="Weapon" parent="." unique_id=1271681541 instance=ExtResource("4_gwnis")]
 z_index = 0
 z_as_relative = false
-position = Vector2(-15, -1)
+position = Vector2(-17, -3)
 rotation = -0.27925268
 projectile_scene = ExtResource("2_k53q1")
+fire_rate = 0.6
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="timeout" from="Attack/IceSpearTimer" to="." method="_on_ice_spear_timer_timeout"]

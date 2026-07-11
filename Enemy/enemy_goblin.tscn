@@ -48,10 +48,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oko62"]
-size = Vector2(29, 29)
+size = Vector2(26, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8amy"]
-size = Vector2(22, 24)
+size = Vector2(22, 23)
 
 [node name="enemy_goblin" type="CharacterBody2D" unique_id=860349946]
 collision_layer = 5
@@ -60,6 +60,7 @@ motion_mode = 1
 script = ExtResource("1_px1sc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=550917710]
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_px1sc")
 hframes = 2
 
@@ -74,14 +75,14 @@ libraries/ = SubResource("AnimationLibrary_eqilm")
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="HurtBox" index="0" unique_id=497110057]
-position = Vector2(-0.5, -0.5)
+position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_oko62")
 
 [node name="HitBox" parent="." unique_id=1298357648 instance=ExtResource("4_oko62")]
 collision_layer = 2
 
 [node name="CollisionShape2D" parent="HitBox" index="0" unique_id=319108404]
-position = Vector2(-1, -2)
+position = Vector2(-1, -1.5)
 shape = SubResource("RectangleShape2D_x8amy")
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]

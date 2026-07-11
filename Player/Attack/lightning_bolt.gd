@@ -5,10 +5,7 @@ extends Area2D
 var my_player : Node2D 
 
 func _ready():
-	# If the bolt spawns pointing sideways, 
-	# rotate it so it matches the mouse direction perfectly.
-	#print("Initial bolt rotation: ", rad_to_deg(rotation))
-	#rotation += deg_to_rad(90) 
+	
 	scale = Vector2(0.5, 0.5) # start smaller
 	var tween = create_tween()
 	tween.tween_property(self, 'scale', Vector2(1.0, 1.0), 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
@@ -20,7 +17,6 @@ func _ready():
 	queue_free()
 
 func _physics_process(delta):
-	# Move forward along the projectile's local "Up" (which is now oriented to the mouse)
 	position += transform.x * speed * delta
 	position.y += sin(Time.get_ticks_msec() / 100.0) * 0.5
 

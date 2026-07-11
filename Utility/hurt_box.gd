@@ -14,7 +14,7 @@ func _on_area_entered(area):
 				0: #cooldown
 					collision.call_deferred("set", "disabled", true)
 					disableTimer.start()
-				1: #HitOnce , for future tutorial
+				1: #HitOnce , for future 
 					pass
 				2: #DisableHitBox
 					if area.has_method("tempdisable"):

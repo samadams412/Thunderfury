@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var movement_speed = 20.0
 @export var hp = 10
-# Add this: Set this to true for Ragnaros, false for the Goblin in the Inspector
+# Set this to true for Ragnaros, false for the Goblin in the Inspector
 @export var use_directional_animations : bool = false 
 
 @onready var player = get_tree().get_first_node_in_group("player")
@@ -11,7 +11,7 @@ extends CharacterBody2D
 
 func _ready():
 	if use_directional_animations:
-		anim.play("walk_left") # Start with a default
+		anim.play("walk_left") # Start with a default facing left 
 	else:
 		anim.play("walk")
 
