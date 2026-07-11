@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://b63dmuh2j7s4r" path="res://Utility/aim_guide.tscn" id="7_gbfbk"]
 [ext_resource type="PackedScene" uid="uid://b54yupaqnicoc" path="res://Enemy/enemy_goblin.tscn" id="7_ioo17"]
 [ext_resource type="PackedScene" uid="uid://de037l6gjvjbs" path="res://Enemy/enemy_ragnaros.tscn" id="8_wse8f"]
+[ext_resource type="Script" uid="uid://bdccgqpttux3p" path="res://pause_menu.gd" id="11_k3n1d"]
+[ext_resource type="FontFile" uid="uid://dx8hw3u0fred3" path="res://Font/tenderness.otf" id="12_2o6r5"]
+[ext_resource type="Texture2D" uid="uid://cpicwb4m6ymjb" path="res://Textures/Items/Weapons/Thunderfury.png" id="13_2o6r5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("1_aqk2v")
@@ -49,3 +52,76 @@ region_rect = Rect2(0, 0, 4000, 4000)
 spawns = Array[ExtResource("6_gbfbk")]([SubResource("Resource_qj06w"), SubResource("Resource_c83qj")])
 
 [node name="AimGuide" parent="." unique_id=372380691 instance=ExtResource("7_gbfbk")]
+
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=1816832882]
+process_mode = 3
+script = ExtResource("11_k3n1d")
+
+[node name="Control" type="Control" parent="PauseMenu" unique_id=1451996971]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1151.0
+offset_bottom = 651.0
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu/Control" unique_id=2147409494]
+layout_mode = 0
+offset_left = -1.0
+offset_right = 1150.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.4862745)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Control" unique_id=1161526059]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 0
+offset_right = 1155.0
+offset_bottom = 647.0
+alignment = 1
+
+[node name="Resume" type="Button" parent="PauseMenu/Control/VBoxContainer" unique_id=610336912]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.972549, 0.09019608, 0, 1)
+theme_override_fonts/font = ExtResource("12_2o6r5")
+theme_override_font_sizes/font_size = 20
+text = "Resume"
+
+[node name="QuitToMenu" type="Button" parent="PauseMenu/Control/VBoxContainer" unique_id=851502175]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.972549, 0.09019608, 0, 1)
+theme_override_fonts/font = ExtResource("12_2o6r5")
+theme_override_font_sizes/font_size = 20
+text = "Quit To Main Menu"
+
+[node name="TextureRect2" type="TextureRect" parent="PauseMenu/Control" unique_id=569244441]
+z_index = -1
+layout_mode = 0
+offset_left = 430.0
+offset_top = -6.0
+offset_right = 718.0
+offset_bottom = 270.0
+offset_transform_enabled = true
+texture = ExtResource("13_2o6r5")
+
+[node name="Label" type="Label" parent="PauseMenu/Control" unique_id=437973479]
+layout_mode = 0
+offset_left = 397.0
+offset_top = 242.0
+offset_right = 777.0
+offset_bottom = 275.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_2o6r5")
+theme_override_font_sizes/font_size = 32
+text = "Thunderfury: The Blessed Blade"
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="PauseMenu" unique_id=1509804941]
+process_mode = 3
+oversampling_override = 1.0
+initial_position = 1
+ok_button_text = "Ok"
+dialog_text = "Quit to Main Menu?"
+
+[connection signal="pressed" from="PauseMenu/Control/VBoxContainer/Resume" to="PauseMenu" method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/Control/VBoxContainer/QuitToMenu" to="PauseMenu" method="_on_quit_to_menu_pressed"]
+[connection signal="confirmed" from="PauseMenu/ConfirmationDialog" to="PauseMenu" method="_on_confirmation_dialog_confirmed"]

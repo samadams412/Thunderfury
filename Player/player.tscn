@@ -118,7 +118,6 @@ vframes = 4
 frame = 6
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1527704918]
-zoom = Vector2(2, 2)
 position_smoothing_speed = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=646633335]

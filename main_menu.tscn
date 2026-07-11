@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://d2qmdshg0wjrt"]
+
+[ext_resource type="Script" uid="uid://cu0xrdhjab6pt" path="res://main_menu.gd" id="1_06t4h"]
+[ext_resource type="FontFile" uid="uid://dx8hw3u0fred3" path="res://Font/tenderness.otf" id="2_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://cpicwb4m6ymjb" path="res://Textures/Items/Weapons/Thunderfury.png" id="3_fu7sn"]
+
+[sub_resource type="Gradient" id="Gradient_we3xj"]
+offsets = PackedFloat32Array(0, 0.99418604)
+colors = PackedColorArray(0.8463544, 0.43571496, 0.19252509, 1, 0.32289544, 0.077944405, 0.061612077, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d0u6y"]
+gradient = SubResource("Gradient_we3xj")
+
+[node name="MainMenu" type="Control" unique_id=978280004]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_06t4h")
+
+[node name="Label" type="Label" parent="." unique_id=1623291123]
+layout_mode = 0
+offset_left = 397.0
+offset_top = 242.0
+offset_right = 777.0
+offset_bottom = 275.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_7vrkn")
+theme_override_font_sizes/font_size = 32
+text = "Thunderfury: The Blessed Blade"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=787962842]
+z_index = -2
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 647.0
+texture = SubResource("GradientTexture2D_d0u6y")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=567646168]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 647.0
+alignment = 1
+
+[node name="StartButton" type="Button" parent="VBoxContainer" unique_id=238538888]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_7vrkn")
+text = "Start Game"
+
+[node name="ControlsButton" type="Button" parent="VBoxContainer" unique_id=658698316]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_7vrkn")
+text = "Controls"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=918649452]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_7vrkn")
+text = "Quit
+"
+
+[node name="ThunderfuryTexture" type="TextureRect" parent="." unique_id=215859585]
+z_index = -1
+layout_mode = 0
+offset_left = 430.0
+offset_top = -6.0
+offset_right = 718.0
+offset_bottom = 270.0
+offset_transform_enabled = true
+texture = ExtResource("3_fu7sn")
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlsButton" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

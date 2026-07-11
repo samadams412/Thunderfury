@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Thunderfury"
-run/main_scene="uid://cssjk0vpndtae"
+run/main_scene="uid://d2qmdshg0wjrt"
 config/features=PackedStringArray("4.7", "Mobile")
 
 [global_group]
