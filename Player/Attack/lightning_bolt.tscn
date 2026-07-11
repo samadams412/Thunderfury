@@ -75,8 +75,9 @@ height = 38.000004
 top_level = true
 z_index = 10
 collision_layer = 4
-collision_mask = 0
+collision_mask = 4
 script = ExtResource("1_dge2n")
+pierce_count = 2
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=2122220271]
 position = Vector2(13, -19)
@@ -93,5 +94,3 @@ position = Vector2(-16, 0)
 rotation = 1.5707964
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("CapsuleShape2D_s7hsr")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

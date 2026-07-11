@@ -71,7 +71,7 @@ shape = SubResource("CapsuleShape2D_g4v7s")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=503468172]
 libraries/ = SubResource("AnimationLibrary_eqilm")
 
-[node name="HurtBox" parent="." unique_id=1799829518 instance=ExtResource("3_xwt20")]
+[node name="HurtBox" parent="." unique_id=1799829518 groups=["enemy_hurtbox"] instance=ExtResource("3_xwt20")]
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="HurtBox" index="0" unique_id=497110057]

@@ -5,6 +5,7 @@ extends Node2D
 @export var fire_rate : float = 0.5
 @onready var fire_rate_timer = $FireRateTimer
 
+
 var is_facing_right : bool = false 
 
 # Store the direction the player is aiming at
@@ -29,6 +30,8 @@ func fire(owner_player : Node2D):
 	# Only fire if timer is NOT running
 	if not fire_rate_timer.is_stopped():
 		return
+	
+	var spawn_pos = spawn_point.global_position
 		
 	if not projectile_scene:
 		print("ERROR: Projectile scene not assigned!")
@@ -40,11 +43,15 @@ func fire(owner_player : Node2D):
 	recoil_tween.tween_property(self, "rotation", rotation + 0.2, 0.1)
 		
 	fire_rate_timer.start()
-	var proj = projectile_scene.instantiate()
-	get_tree().root.add_child(proj)
 	
+	var proj = projectile_scene.instantiate()
 	proj.my_player = owner_player
-	proj.global_position = spawn_point.global_position
+	proj.global_position = spawn_pos
+	#proj.global_position = spawn_point.global_position
+	
+	get_tree().root.add_child(proj)
 	
 	proj.look_at(get_global_mouse_position())
 	print("Weapon aim angle: ", rad_to_deg(proj.rotation))
+	print("SpawnPoint Global: ", spawn_pos)
+	print("Projectile Global: ", proj.global_position)

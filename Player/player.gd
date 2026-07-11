@@ -26,23 +26,23 @@ func _physics_process(_delta):
 func movement():
 	var mov = Input.get_vector("left", "right", "up", "down")
 	
-	# Handle Sprite/Weapon Logic
-	if mov.x < 0:
-		sprite.flip_h = false # Facing left
-		weapon.position = Vector2(-17, -3) 
-		weapon.is_facing_right = false
-		anim_player.play("walk_left")
-	elif mov.x > 0:
-		sprite.flip_h = false # Facing right
-		weapon.position = Vector2(16, -3) 
-		weapon.is_facing_right = true
-		anim_player.play("walk_right")
+	if mov.x != 0:
+		# 1. Set the state first
+		weapon.is_facing_right = (mov.x > 0)
 		
-	elif mov.y != 0:
+		# 2. Act based on that state
 		if weapon.is_facing_right:
+			sprite.flip_h = false
+			weapon.position = Vector2(16, -3)
 			anim_player.play("walk_right")
 		else:
+			sprite.flip_h = false # Assuming you handle sprite mirroring elsewhere
+			weapon.position = Vector2(-17, -3)
 			anim_player.play("walk_left")
+			
+	elif mov.y != 0:
+		# Use the state to decide animation
+		anim_player.play("walk_right" if weapon.is_facing_right else "walk_left")
 	
 	if mov == Vector2.ZERO:
 		if not weapon.is_facing_right:
@@ -59,13 +59,13 @@ func _on_hurt_box_hurt(damage):
 	hp -= damage
 	print("Player HP: ", hp)
 	if hp <= 0:
-		get_tree().reload_current_scene()
+		get_tree().call_deferred("change_scene_to_file", "res://path/to/your/main_menu.tscn")
 
-# --- Enemy Detection Logic ---
-func _on_enemy_detection_area_body_entered(body):
-	if not enemy_close.has(body):
-		enemy_close.append(body)
-
-func _on_enemy_detection_area_body_exited(body):
-	if enemy_close.has(body):
-		enemy_close.erase(body)
+## --- Enemy Detection Logic ---
+#func _on_enemy_detection_area_body_entered(body):
+	#if not enemy_close.has(body):
+		#enemy_close.append(body)
+#
+#func _on_enemy_detection_area_body_exited(body):
+	#if enemy_close.has(body):
+		#enemy_close.erase(body)

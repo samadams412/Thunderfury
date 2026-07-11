@@ -16,6 +16,10 @@ func _ready():
 		anim.play("walk")
 
 func _physics_process(_delta):
+	if not is_instance_valid(player):
+		player = get_tree().get_first_node_in_group("player")
+		return
+		
 	var direction = global_position.direction_to(player.global_position)
 	velocity = direction * movement_speed
 	move_and_slide()

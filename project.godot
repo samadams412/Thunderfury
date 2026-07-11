@@ -21,6 +21,7 @@ config/features=PackedStringArray("4.7", "Mobile")
 [global_group]
 
 attack=""
+enemy_hurtbox=""
 
 [input]
 

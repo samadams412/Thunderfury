@@ -66,7 +66,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p20nn"]
-size = Vector2(82, 99)
+size = Vector2(88, 99)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ck2q"]
 size = Vector2(72, 93)
@@ -91,12 +91,12 @@ shape = SubResource("CapsuleShape2D_g4v7s")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=503468172]
 libraries/ = SubResource("AnimationLibrary_eqilm")
 
-[node name="HurtBox" parent="." unique_id=1799829518 instance=ExtResource("3_4yker")]
+[node name="HurtBox" parent="." unique_id=1799829518 groups=["attack"] instance=ExtResource("3_4yker")]
 position = Vector2(19.339973, 16.842789)
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="HurtBox" index="0" unique_id=497110057]
-position = Vector2(-11.339973, -11.342789)
+position = Vector2(-14.339973, -11.342789)
 shape = SubResource("RectangleShape2D_p20nn")
 
 [node name="HitBox" parent="." unique_id=1298357648 instance=ExtResource("4_0k1sp")]
