@@ -5,9 +5,15 @@ func _on_start_button_pressed():
 	get_tree().change_scene_to_file("res://World.tscn")
 
 
-func _on_quit_button_pressed() -> void:
+func _on_quit_button_pressed():
 	get_tree().quit()
 
 
-func _on_controls_button_pressed() -> void:
-	pass
+func _on_controls_button_pressed():
+	$VBoxContainer.visible = false
+	$ControlsMenu.visible = true
+	
+func _on_back_button_pressed():
+	$ControlsMenu.visible = false
+	$VBoxContainer.visible = true
+	

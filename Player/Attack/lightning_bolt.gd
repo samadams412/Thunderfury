@@ -5,13 +5,13 @@ extends Area2D
 var my_player : Node2D 
 
 func _ready():
-	
-	scale = Vector2(0.5, 0.5) # start smaller
-	var tween = create_tween()
-	tween.tween_property(self, 'scale', Vector2(1.0, 1.0), 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	$Sprite2D.play("lightning")
+	#scale = Vector2(0.5, 0.5) # start smaller
+	#var tween = create_tween()
+	#tween.tween_property(self, 'scale', Vector2(1.0, 1.0), 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	#tween.tween_property(self, "modulate", Color.CYAN, 0.2).from(Color.WHITE)
-	tween.set_loops()
-	rotation_degrees += 5
+	#tween.set_loops()
+	#rotation_degrees += 5
 	# Cleanup after 3 seconds
 	await get_tree().create_timer(3.0).timeout
 	queue_free()

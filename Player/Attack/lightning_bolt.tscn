@@ -1,11 +1,75 @@
 [gd_scene format=3 uid="uid://dls3aub4dravu"]
 
 [ext_resource type="Script" uid="uid://dxtcgjp1mqf58" path="res://Player/Attack/lightning_bolt.gd" id="1_dge2n"]
-[ext_resource type="Texture2D" uid="uid://cbbrckc858gwy" path="res://Textures/Items/Weapons/tornado.png" id="2_dge2n"]
+[ext_resource type="Texture2D" uid="uid://bjblm7dvelmg8" path="res://Textures/Items/Weapons/Lightning.png" id="2_dge2n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcae4"]
+atlas = ExtResource("2_dge2n")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkbja"]
+atlas = ExtResource("2_dge2n")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujxtw"]
+atlas = ExtResource("2_dge2n")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7hsr"]
+atlas = ExtResource("2_dge2n")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwj8o"]
+atlas = ExtResource("2_dge2n")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqcdq"]
+atlas = ExtResource("2_dge2n")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dge2n"]
+atlas = ExtResource("2_dge2n")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_erxft"]
+atlas = ExtResource("2_dge2n")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcae4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkbja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujxtw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7hsr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwj8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqcdq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dge2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_erxft")
+}],
+"loop": 0,
+"name": &"lightning",
+"speed": 12.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s7hsr"]
-radius = 8.000001
-height = 26.000004
+radius = 7.0000014
+height = 38.000004
 
 [node name="LightningBolt" type="Area2D" unique_id=1239526160 groups=["attack"]]
 top_level = true
@@ -14,12 +78,18 @@ collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_dge2n")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1330866098]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=2122220271]
+position = Vector2(13, -19)
 rotation = 1.5707964
-texture = ExtResource("2_dge2n")
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"lightning"
+speed_scale = 0.5
+centered = false
+flip_v = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=606272542]
-position = Vector2(1, 0)
+position = Vector2(-16, 0)
 rotation = 1.5707964
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("CapsuleShape2D_s7hsr")
