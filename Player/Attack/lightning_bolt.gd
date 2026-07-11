@@ -2,10 +2,12 @@ extends Area2D
 
 @export var speed = 200
 @export var damage = 5
+@export var pierce_count = 1
 var my_player : Node2D 
 
 func _ready():
 	$Sprite2D.play("lightning")
+	$Sprite2D.animation_finished.connect(_on_animation_finished)
 	#scale = Vector2(0.5, 0.5) # start smaller
 	#var tween = create_tween()
 	#tween.tween_property(self, 'scale', Vector2(1.0, 1.0), 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
@@ -18,7 +20,7 @@ func _ready():
 
 func _physics_process(delta):
 	position += transform.x * speed * delta
-	position.y += sin(Time.get_ticks_msec() / 100.0) * 0.5
+	position.y += sin(Time.get_ticks_msec() / 100.0) * 0.5 #adds effect to lightning
 
 func _on_body_entered(body):
 	if body == my_player:
@@ -26,6 +28,11 @@ func _on_body_entered(body):
 		
 	if body.has_method("enemy_hit"):
 		body.enemy_hit(damage)
+		pierce_count -= 1 
+	if pierce_count < 0:
 		queue_free()
 	elif not body.is_in_group("player"): 
 		queue_free()
+
+func _on_animation_finished():
+	queue_free() #if animation finishes before hitting anything, clean it up

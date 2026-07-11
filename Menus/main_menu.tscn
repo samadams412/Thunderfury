@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://d2qmdshg0wjrt"]
 
-[ext_resource type="Script" uid="uid://cu0xrdhjab6pt" path="res://main_menu.gd" id="1_06t4h"]
-[ext_resource type="FontFile" uid="uid://dx8hw3u0fred3" path="res://Font/tenderness.otf" id="2_7vrkn"]
-[ext_resource type="Texture2D" uid="uid://cpicwb4m6ymjb" path="res://Textures/Items/Weapons/Thunderfury.png" id="3_fu7sn"]
+[ext_resource type="Script" uid="uid://cu0xrdhjab6pt" path="res://Menus/main_menu.gd" id="1_11gta"]
+[ext_resource type="FontFile" uid="uid://dx8hw3u0fred3" path="res://Font/tenderness.otf" id="2_cxdly"]
+[ext_resource type="Theme" uid="uid://4bejjidht0ni" path="res://GameTheme.tres" id="3_vxn86"]
+[ext_resource type="Texture2D" uid="uid://cpicwb4m6ymjb" path="res://Textures/Items/Weapons/Thunderfury.png" id="4_gn11b"]
 
 [sub_resource type="Gradient" id="Gradient_we3xj"]
 offsets = PackedFloat32Array(0, 0.99418604)
@@ -18,7 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_06t4h")
+script = ExtResource("1_11gta")
 
 [node name="Label" type="Label" parent="." unique_id=1623291123]
 layout_mode = 0
@@ -28,7 +29,7 @@ offset_right = 777.0
 offset_bottom = 275.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_7vrkn")
+theme_override_fonts/font = ExtResource("2_cxdly")
 theme_override_font_sizes/font_size = 32
 text = "Thunderfury: The Blessed Blade"
 
@@ -43,6 +44,7 @@ texture = SubResource("GradientTexture2D_d0u6y")
 layout_mode = 0
 offset_right = 1154.0
 offset_bottom = 647.0
+theme = ExtResource("3_vxn86")
 alignment = 1
 
 [node name="StartButton" type="Button" parent="VBoxContainer" unique_id=238538888]
@@ -51,7 +53,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.9490196, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_7vrkn")
+theme_override_fonts/font = ExtResource("2_cxdly")
 text = "Start Game"
 
 [node name="ControlsButton" type="Button" parent="VBoxContainer" unique_id=658698316]
@@ -60,16 +62,16 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_7vrkn")
+theme_override_fonts/font = ExtResource("2_cxdly")
 text = "Controls"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=918649452]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("3_vxn86")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_7vrkn")
 text = "Quit
 "
 
@@ -81,13 +83,14 @@ offset_top = -6.0
 offset_right = 718.0
 offset_bottom = 270.0
 offset_transform_enabled = true
-texture = ExtResource("3_fu7sn")
+texture = ExtResource("4_gn11b")
 
 [node name="ControlsMenu" type="Control" parent="." unique_id=80624542]
 visible = false
 anchors_preset = 0
 offset_right = 1154.0
 offset_bottom = 647.0
+theme = ExtResource("3_vxn86")
 
 [node name="Label" type="Label" parent="ControlsMenu" unique_id=2091261156]
 layout_mode = 0
@@ -95,7 +98,7 @@ offset_left = 533.0
 offset_top = 281.0
 offset_right = 642.0
 offset_bottom = 308.0
-theme_override_fonts/font = ExtResource("2_7vrkn")
+theme_override_fonts/font = ExtResource("2_cxdly")
 theme_override_font_sizes/font_size = 28
 text = "Controls"
 
@@ -132,7 +135,7 @@ offset_right = 628.0
 offset_bottom = 422.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_7vrkn")
+theme_override_fonts/font = ExtResource("2_cxdly")
 text = "Back to Menu"
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

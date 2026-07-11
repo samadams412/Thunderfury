@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b63dmuh2j7s4r" path="res://Utility/aim_guide.tscn" id="7_gbfbk"]
 [ext_resource type="PackedScene" uid="uid://b54yupaqnicoc" path="res://Enemy/enemy_goblin.tscn" id="7_ioo17"]
 [ext_resource type="PackedScene" uid="uid://de037l6gjvjbs" path="res://Enemy/enemy_ragnaros.tscn" id="8_wse8f"]
-[ext_resource type="Script" uid="uid://bdccgqpttux3p" path="res://pause_menu.gd" id="11_k3n1d"]
+[ext_resource type="Script" uid="uid://bdccgqpttux3p" path="res://Menus/pause_menu.gd" id="11_k3n1d"]
 [ext_resource type="FontFile" uid="uid://dx8hw3u0fred3" path="res://Font/tenderness.otf" id="12_2o6r5"]
 [ext_resource type="Texture2D" uid="uid://cpicwb4m6ymjb" path="res://Textures/Items/Weapons/Thunderfury.png" id="13_2o6r5"]
 

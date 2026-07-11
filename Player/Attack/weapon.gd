@@ -33,6 +33,11 @@ func fire(owner_player : Node2D):
 	if not projectile_scene:
 		print("ERROR: Projectile scene not assigned!")
 		return
+	
+	#tween for weapon fire responsiveness	
+	var recoil_tween = create_tween()
+	recoil_tween.tween_property(self, "rotation", rotation - 0.2, 0.05)
+	recoil_tween.tween_property(self, "rotation", rotation + 0.2, 0.1)
 		
 	fire_rate_timer.start()
 	var proj = projectile_scene.instantiate()

@@ -6,7 +6,7 @@ export_presets.cfg
 .import/
 *.tmp
 
-# User-specific settings (keep these out of version control)
+# User-specific settings 
 .vscode/
 .idea/
 .vs/
