@@ -18,6 +18,14 @@ config/name="Thunderfury"
 run/main_scene="uid://d2qmdshg0wjrt"
 config/features=PackedStringArray("4.7", "Mobile")
 
+[audio]
+
+buses/default_bus_layout="uid://c7le7easwdmt8"
+
+[autoload]
+
+SoundManager="*uid://cnthrpigb2scc"
+
 [global_group]
 
 attack=""

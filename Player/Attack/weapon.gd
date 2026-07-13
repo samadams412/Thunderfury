@@ -41,7 +41,7 @@ func fire(owner_player : Node2D):
 	var recoil_tween = create_tween()
 	recoil_tween.tween_property(self, "rotation", rotation - 0.2, 0.05)
 	recoil_tween.tween_property(self, "rotation", rotation + 0.2, 0.1)
-		
+	$ShootSound.play()
 	fire_rate_timer.start()
 	
 	var proj = projectile_scene.instantiate()
@@ -52,6 +52,6 @@ func fire(owner_player : Node2D):
 	get_tree().root.add_child(proj)
 	
 	proj.look_at(get_global_mouse_position())
-	print("Weapon aim angle: ", rad_to_deg(proj.rotation))
+	print("WeaponAim Angle: ", rad_to_deg(proj.rotation))
 	print("SpawnPoint Global: ", spawn_pos)
 	print("Projectile Global: ", proj.global_position)

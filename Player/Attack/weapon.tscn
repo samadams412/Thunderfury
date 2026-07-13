@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cpicwb4m6ymjb" path="res://Textures/Items/Weapons/Thunderfury.png" id="1_016xb"]
 [ext_resource type="Script" uid="uid://dorbikqtgghdx" path="res://Player/Attack/weapon.gd" id="1_ufaed"]
+[ext_resource type="AudioStream" uid="uid://cgrqsfsy4scpb" path="res://Audio/SoundEffect/ShootWandLaunchLightning.ogg" id="3_bafdh"]
 
 [node name="Weapon" type="Node2D" unique_id=1271681541]
 z_index = -1
@@ -19,3 +20,8 @@ scale = Vector2(1.0000001, 1.0000001)
 [node name="FireRateTimer" type="Timer" parent="." unique_id=1704458174]
 wait_time = 0.5
 one_shot = true
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="." unique_id=1816314536]
+stream = ExtResource("3_bafdh")
+volume_db = -5.586
+bus = &"SFX"

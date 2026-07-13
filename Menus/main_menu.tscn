@@ -4,13 +4,16 @@
 [ext_resource type="FontFile" uid="uid://dx8hw3u0fred3" path="res://Font/tenderness.otf" id="2_cxdly"]
 [ext_resource type="Theme" uid="uid://4bejjidht0ni" path="res://GameTheme.tres" id="3_vxn86"]
 [ext_resource type="Texture2D" uid="uid://cpicwb4m6ymjb" path="res://Textures/Items/Weapons/Thunderfury.png" id="4_gn11b"]
+[ext_resource type="Script" uid="uid://c68y84at2w0eo" path="res://Audio/GUI/menu_button.gd" id="4_vxn86"]
+[ext_resource type="AudioStream" uid="uid://br58gk2yb4r8" path="res://Audio/Music/DayBarrenDry01.mp3" id="5_cxdly"]
+[ext_resource type="PackedScene" uid="uid://bvuce28vbd74q" path="res://settings_menu.tscn" id="7_gn11b"]
 
-[sub_resource type="Gradient" id="Gradient_we3xj"]
+[sub_resource type="Gradient" id="Gradient_2k0p2"]
 offsets = PackedFloat32Array(0, 0.99418604)
 colors = PackedColorArray(0.8463544, 0.43571496, 0.19252509, 1, 0.32289544, 0.077944405, 0.061612077, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_d0u6y"]
-gradient = SubResource("Gradient_we3xj")
+gradient = SubResource("Gradient_2k0p2")
 
 [node name="MainMenu" type="Control" unique_id=978280004]
 layout_mode = 3
@@ -40,14 +43,15 @@ offset_right = 1154.0
 offset_bottom = 647.0
 texture = SubResource("GradientTexture2D_d0u6y")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=567646168]
+[node name="ButtonContainer" type="VBoxContainer" parent="." unique_id=567646168]
 layout_mode = 0
+offset_top = 20.0
 offset_right = 1154.0
-offset_bottom = 647.0
+offset_bottom = 689.0
 theme = ExtResource("3_vxn86")
 alignment = 1
 
-[node name="StartButton" type="Button" parent="VBoxContainer" unique_id=238538888]
+[node name="StartButton" type="Button" parent="ButtonContainer" unique_id=238538888]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -55,8 +59,9 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.9490196, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_cxdly")
 text = "Start Game"
+script = ExtResource("4_vxn86")
 
-[node name="ControlsButton" type="Button" parent="VBoxContainer" unique_id=658698316]
+[node name="ControlsButton" type="Button" parent="ButtonContainer" unique_id=658698316]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -64,8 +69,20 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_cxdly")
 text = "Controls"
+script = ExtResource("4_vxn86")
 
-[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=918649452]
+[node name="SettingsButton" type="Button" parent="ButtonContainer" unique_id=2042312096]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_cxdly")
+text = "Settings
+"
+script = ExtResource("4_vxn86")
+
+[node name="QuitButton" type="Button" parent="ButtonContainer" unique_id=918649452]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -74,6 +91,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
 text = "Quit
 "
+script = ExtResource("4_vxn86")
 
 [node name="ThunderfuryTexture" type="TextureRect" parent="." unique_id=215859585]
 z_index = -1
@@ -137,8 +155,22 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_cxdly")
 text = "Back to Menu"
+script = ExtResource("4_vxn86")
 
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/ControlsButton" to="." method="_on_controls_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="SettingsMenu" parent="." unique_id=298603546 instance=ExtResource("7_gn11b")]
+visible = false
+layout_mode = 1
+offset_top = 25.0
+offset_bottom = 25.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=839741395]
+stream = ExtResource("5_cxdly")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[connection signal="pressed" from="ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/ControlsButton" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="ButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="ControlsMenu/BackButton" to="." method="_on_back_button_pressed"]

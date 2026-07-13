@@ -2,13 +2,13 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://bij22ggp6l5kd"
-path="res://.godot/imported/levelup.ogg-4b512de2ede418690231f1a46589de88.oggvorbisstr"
+uid="uid://c1e5iedfmr7b4"
+path="res://.godot/imported/LevelUp.ogg-7cc31def9cfc79aad137ad90a637d9f7.oggvorbisstr"
 
 [deps]
 
-source_file="res://Audio/SoundEffect/levelup.ogg"
-dest_files=["res://.godot/imported/levelup.ogg-4b512de2ede418690231f1a46589de88.oggvorbisstr"]
+source_file="res://Audio/SoundEffect/LevelUp.ogg"
+dest_files=["res://.godot/imported/LevelUp.ogg-7cc31def9cfc79aad137ad90a637d9f7.oggvorbisstr"]
 
 [params]
 
