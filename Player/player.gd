@@ -1,13 +1,22 @@
 extends CharacterBody2D
 
 @export var movement_speed = 60.0
-@export var hp = 50
+@export var max_hp: int = 50
+var hp = max_hp
+var level: int = 1
+var current_xp: int = 0
+var xp_to_next_level: int = 100
 var is_dead: bool = false
+@export var level_up_sound: AudioStream
 @export var hit_sound: AudioStream
 @export var death_sound: AudioStream
 @export var game_over_scene: PackedScene
-# Weapon Reference
+@onready var level_up_effect = $LevelUpEffect
 @onready var weapon = $Weapon
+
+signal hp_changed(current_hp: int, max_hp: int)
+signal xp_changed(current_xp: int, xp_to_next: int)
+signal leveled_up(new_level: int)
 
 # Enemy Detection
 var enemy_close = []
@@ -19,6 +28,8 @@ var enemy_close = []
 func _ready() -> void:
 	sprite_material = sprite.material.duplicate()
 	sprite.material = sprite_material
+	hp_changed.emit(hp, max_hp)
+	xp_changed.emit(current_xp, xp_to_next_level)
 
 func flash_hit() -> void:
 	var tween = create_tween()
@@ -73,6 +84,7 @@ func _on_hurt_box_hurt(damage):
 		return
 
 	hp -= damage
+	hp_changed.emit(hp, max_hp)
 	print("Player HP: ", hp)
 	flash_hit()
 	
@@ -84,8 +96,15 @@ func _on_hurt_box_hurt(damage):
 		SoundManager.play_sound(hit_sound)
 		
 func add_xp(value: int) -> void:
-	# Placeholder — Phase 2 will replace this with real leveling logic
-	print("Collected XP: ", value)
+	current_xp += value
+	while current_xp >= xp_to_next_level:
+		current_xp -= xp_to_next_level
+		level += 1
+		xp_to_next_level += 50
+		SoundManager.play_sound(level_up_sound)
+		leveled_up.emit(level)
+		level_up_effect.play()
+	xp_changed.emit(current_xp, xp_to_next_level)
 	
 func show_game_over() -> void:
 	get_tree().current_scene.add_child(game_over_scene.instantiate())

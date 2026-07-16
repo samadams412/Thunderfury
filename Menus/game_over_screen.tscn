@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://m36aeuyfgqor"]
 
-[ext_resource type="Script" uid="uid://bbj6olqt6caw3" path="res://game_over_screen.gd" id="1_1lxip"]
-[ext_resource type="Theme" uid="uid://4bejjidht0ni" path="res://GameTheme.tres" id="2_8arbs"]
+[ext_resource type="Script" uid="uid://bbj6olqt6caw3" path="res://Menus/game_over_screen.gd" id="1_1lxip"]
+[ext_resource type="Theme" uid="uid://4bejjidht0ni" path="res://Utility/GameTheme.tres" id="2_8arbs"]
 
 [sub_resource type="Gradient" id="Gradient_2k0p2"]
 offsets = PackedFloat32Array(0, 0.99418604)

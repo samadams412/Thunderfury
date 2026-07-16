@@ -12,12 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://de037l6gjvjbs" path="res://Enemy/enemy_ragnaros.tscn" id="8_wse8f"]
 [ext_resource type="Script" uid="uid://bdccgqpttux3p" path="res://Menus/pause_menu.gd" id="11_k3n1d"]
 [ext_resource type="FontFile" uid="uid://dx8hw3u0fred3" path="res://Font/tenderness.otf" id="12_2o6r5"]
-[ext_resource type="Theme" uid="uid://4bejjidht0ni" path="res://GameTheme.tres" id="12_udxuc"]
+[ext_resource type="Theme" uid="uid://4bejjidht0ni" path="res://Utility/GameTheme.tres" id="12_udxuc"]
 [ext_resource type="Texture2D" uid="uid://cpicwb4m6ymjb" path="res://Textures/Items/Weapons/Thunderfury.png" id="13_2o6r5"]
 [ext_resource type="AudioStream" uid="uid://b0xifwtp43ml5" path="res://Audio/Music/orgrimmar02-zone.mp3" id="14_70uel"]
 [ext_resource type="Script" uid="uid://c68y84at2w0eo" path="res://Audio/GUI/menu_button.gd" id="14_ikiii"]
 [ext_resource type="Script" uid="uid://cueio0uvxseki" path="res://Audio/Music/music_player.gd" id="15_hiqwa"]
 [ext_resource type="PackedScene" uid="uid://bvuce28vbd74q" path="res://Menus/settings_menu.tscn" id="15_ikiii"]
+[ext_resource type="PackedScene" uid="uid://bi61wy3svb270" path="res://Menus/hud.tscn" id="19_cbp6q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("1_aqk2v")
@@ -150,6 +151,8 @@ stream = ExtResource("14_70uel")
 autoplay = true
 bus = &"Music"
 script = ExtResource("15_hiqwa")
+
+[node name="HUD" parent="." unique_id=1080144834 instance=ExtResource("19_cbp6q")]
 
 [connection signal="pressed" from="PauseMenu/Control/VBoxContainer/Resume" to="PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseMenu/Control/VBoxContainer/Settings" to="PauseMenu" method="_on_settings_pressed"]

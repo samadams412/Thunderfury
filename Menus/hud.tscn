@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bi61wy3svb270"]
+
+[ext_resource type="Script" uid="uid://bge5ngsq8jq7m" path="res://hud.gd" id="1_p0pr0"]
+[ext_resource type="Script" uid="uid://d38lwhurduo7w" path="res://Menus/tick_overlay.gd" id="2_fypj3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57qmd"]
+bg_color = Color(0.8357183, 3.2247603e-06, 7.70092e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3gngh"]
+bg_color = Color(0.24705882, 0.61960787, 0.24705882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf5fn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(0.54509807, 0.18431373, 0.7882353, 1)
+
+[node name="HUD" type="CanvasLayer" unique_id=1080144834]
+process_mode = 3
+script = ExtResource("1_p0pr0")
+
+[node name="HPFrame" type="Control" parent="." unique_id=1202342821]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 140.0
+offset_bottom = 48.0
+
+[node name="HPBar" type="ProgressBar" parent="HPFrame" unique_id=1724477685]
+layout_mode = 0
+offset_right = 140.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_57qmd")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3gngh")
+
+[node name="LevelLabel" type="Label" parent="HPFrame" unique_id=786690664]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="XPBarContainer" type="Control" parent="." unique_id=1395857360]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TickOverlay" type="Control" parent="XPBarContainer" unique_id=1067232083]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 8.0
+offset_top = -26.0
+offset_right = 1160.0
+mouse_filter = 2
+script = ExtResource("2_fypj3")
+
+[node name="XPBar" type="ProgressBar" parent="XPBarContainer" unique_id=1097024743]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+offset_right = 1152.0
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_yf5fn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_g4v7s")

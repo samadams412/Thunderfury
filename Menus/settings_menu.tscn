@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bvuce28vbd74q"]
 
-[ext_resource type="Theme" uid="uid://4bejjidht0ni" path="res://GameTheme.tres" id="1_ufg0w"]
+[ext_resource type="Theme" uid="uid://4bejjidht0ni" path="res://Utility/GameTheme.tres" id="1_ufg0w"]
 [ext_resource type="Script" uid="uid://c1reus3o0vq7f" path="res://Audio/GUI/h_slider.gd" id="2_mlw3h"]
 [ext_resource type="FontFile" uid="uid://dx8hw3u0fred3" path="res://Font/tenderness.otf" id="3_fiqec"]
 [ext_resource type="Script" uid="uid://dtegkurfasn4y" path="res://Menus/settings_menu.gd" id="4_fiqec"]

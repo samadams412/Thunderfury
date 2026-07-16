@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ckqwikuvd4blu"]
 
-[ext_resource type="Script" uid="uid://u7heq63sfoxo" path="res://xp_orb.gd" id="1_6im8o"]
+[ext_resource type="Script" uid="uid://u7heq63sfoxo" path="res://Utility/xp_orb.gd" id="1_6im8o"]
 [ext_resource type="Texture2D" uid="uid://du25685glfd7n" path="res://Textures/Items/Gems/Gem_blue.png" id="2_aq0t6"]
 [ext_resource type="AudioStream" uid="uid://db2wifcxsgae1" path="res://Audio/SoundEffect/LootCoinSmall.ogg" id="2_dnh4f"]
 

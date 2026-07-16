@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dvademfmunjic"]
+
+[ext_resource type="Script" uid="uid://4kur17ytspr6" path="res://Utility/level_up_effect.gd" id="1_uugnu"]
+
+[node name="LevelUpEffect" type="Node2D" unique_id=1571871732]
+script = ExtResource("1_uugnu")
+
+[node name="Beam" type="ColorRect" parent="." unique_id=1333721988]
+visible = false
+z_index = -1
+offset_right = 15.0
+offset_bottom = 100.0
+color = Color(0.9882353, 1, 0.047058824, 1)
+
+[node name="GlowBeam" type="Sprite2D" parent="." unique_id=588998432]
+
+[node name="CoreBeam" type="Sprite2D" parent="." unique_id=746005415]
+
+[node name="GroundGlow" type="Sprite2D" parent="." unique_id=1490291823]
+
+[node name="Sparkles" type="GPUParticles2D" parent="." unique_id=1288348150]
