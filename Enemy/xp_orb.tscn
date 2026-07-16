@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ckqwikuvd4blu"]
+
+[ext_resource type="Script" uid="uid://u7heq63sfoxo" path="res://xp_orb.gd" id="1_6im8o"]
+[ext_resource type="Texture2D" uid="uid://du25685glfd7n" path="res://Textures/Items/Gems/Gem_blue.png" id="2_aq0t6"]
+[ext_resource type="AudioStream" uid="uid://db2wifcxsgae1" path="res://Audio/SoundEffect/LootCoinSmall.ogg" id="2_dnh4f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 80.0
+
+[node name="XPOrb" type="Area2D" unique_id=1262689309]
+collision_layer = 8
+script = ExtResource("1_6im8o")
+pickup_sound = ExtResource("2_dnh4f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1161245312]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1754016803]
+texture = ExtResource("2_aq0t6")

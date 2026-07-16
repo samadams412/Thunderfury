@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://cnthrpigb2scc"]
-
-[ext_resource type="Script" uid="uid://bgttimx8e5lkm" path="res://sound_manager.gd" id="1_g5net"]
-
-[node name="SoundManager" type="AudioStreamPlayer" unique_id=131446680]
-script = ExtResource("1_g5net")

@@ -2,14 +2,29 @@ extends CharacterBody2D
 
 @export var movement_speed = 20.0
 @export var hp = 10
+@export var xp_value: int = 1
 # Set this to true for Ragnaros, false for the Goblin in the Inspector
 @export var use_directional_animations : bool = false 
+@export var hit_sound: AudioStream
+@export var death_sound: AudioStream
+
+
+func flash_hit() -> void:
+	var tween = create_tween()
+	tween.tween_property(sprite_material, "shader_parameter/flash_amount", 1.0, 0.05)
+	tween.tween_property(sprite_material, "shader_parameter/flash_amount", 0.0, 0.15)
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var sprite = $Sprite2D
+@onready var sprite_material: ShaderMaterial = sprite.material
 @onready var anim = $AnimationPlayer
 
+signal died(position: Vector2, xp_value: int)
+
 func _ready():
+	sprite_material = sprite.material.duplicate()
+	sprite.material = sprite_material
+	
 	if use_directional_animations:
 		anim.play("walk_left") # Start with a default facing left 
 	else:
@@ -43,6 +58,12 @@ func _physics_process(_delta):
 func _on_hurt_box_hurt(damage):
 	hp -= damage
 	print("enemy hp: ", hp)
+	flash_hit()
+
 	if hp <= 0:
+		SoundManager.play_sound(death_sound)
+		died.emit(global_position, xp_value)
 		queue_free()
+	else:
+		SoundManager.play_sound(hit_sound)
 		

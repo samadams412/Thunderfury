@@ -13,11 +13,11 @@ func _ready():
 	print("Timer finished, calling queue_free()")
 	queue_free()
 	
-func _process(_delta):
-	if get_tree().paused:
-		print("Bolt logic is paused") # This is not printint while paused
-	else:
-		print("Bolt logic is active")
+#func _process(_delta):
+	#if get_tree().paused:
+		#print("Bolt logic is paused") # This is not printint while paused
+	#else:
+		#print("Bolt logic is active")
 
 func _physics_process(delta):
 	position += transform.x * speed * delta

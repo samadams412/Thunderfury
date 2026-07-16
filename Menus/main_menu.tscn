@@ -6,14 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://cpicwb4m6ymjb" path="res://Textures/Items/Weapons/Thunderfury.png" id="4_gn11b"]
 [ext_resource type="Script" uid="uid://c68y84at2w0eo" path="res://Audio/GUI/menu_button.gd" id="4_vxn86"]
 [ext_resource type="AudioStream" uid="uid://br58gk2yb4r8" path="res://Audio/Music/DayBarrenDry01.mp3" id="5_cxdly"]
-[ext_resource type="PackedScene" uid="uid://bvuce28vbd74q" path="res://settings_menu.tscn" id="7_gn11b"]
+[ext_resource type="PackedScene" uid="uid://bvuce28vbd74q" path="res://Menus/settings_menu.tscn" id="7_gn11b"]
 
-[sub_resource type="Gradient" id="Gradient_2k0p2"]
+[sub_resource type="Gradient" id="Gradient_gn11b"]
 offsets = PackedFloat32Array(0, 0.99418604)
 colors = PackedColorArray(0.8463544, 0.43571496, 0.19252509, 1, 0.32289544, 0.077944405, 0.061612077, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_d0u6y"]
-gradient = SubResource("Gradient_2k0p2")
+gradient = SubResource("Gradient_gn11b")
 
 [node name="MainMenu" type="Control" unique_id=978280004]
 layout_mode = 3

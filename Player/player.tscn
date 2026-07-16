@@ -3,8 +3,16 @@
 [ext_resource type="Script" uid="uid://ca1femql4he46" path="res://Player/player.gd" id="1_btcbx"]
 [ext_resource type="Texture2D" uid="uid://ce103q4p7othx" path="res://Textures/Player/Orc_Player_Sheet.png" id="2_fhl08"]
 [ext_resource type="PackedScene" uid="uid://dls3aub4dravu" path="res://Player/Attack/lightning_bolt.tscn" id="2_k53q1"]
+[ext_resource type="AudioStream" uid="uid://xwyrp74kjl1w" path="res://Audio/SoundEffect/MON_Orcmale_Aggressive01_Attack01.ogg" id="2_vtle1"]
 [ext_resource type="PackedScene" uid="uid://cv2wtwedw7uk1" path="res://Utility/hurt_box.tscn" id="3_btcbx"]
+[ext_resource type="AudioStream" uid="uid://cbvkt8bna78f5" path="res://Audio/SoundEffect/OrcMaleDeath.ogg" id="3_od3ui"]
+[ext_resource type="PackedScene" uid="uid://m36aeuyfgqor" path="res://Menus/game_over_screen.tscn" id="4_00tjw"]
 [ext_resource type="PackedScene" uid="uid://c5ub5seyx4c67" path="res://Player/Attack/weapon.tscn" id="4_gwnis"]
+[ext_resource type="Shader" uid="uid://rwnpm42ywldx" path="res://Utility/hit_flash.gdshader" id="4_od3ui"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gn11b"]
+shader = ExtResource("4_od3ui")
+shader_parameter/flash_amount = 0.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
 radius = 7.0
@@ -109,8 +117,13 @@ _data = {
 z_index = 1
 motion_mode = 1
 script = ExtResource("1_btcbx")
+hp = 10
+hit_sound = ExtResource("2_vtle1")
+death_sound = ExtResource("3_od3ui")
+game_over_scene = ExtResource("4_00tjw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=507757624]
+material = SubResource("ShaderMaterial_gn11b")
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_fhl08")
 hframes = 6

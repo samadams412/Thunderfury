@@ -1,9 +1,16 @@
 [gd_scene format=3 uid="uid://de037l6gjvjbs"]
 
+[ext_resource type="Shader" uid="uid://rwnpm42ywldx" path="res://Utility/hit_flash.gdshader" id="1_0k1sp"]
 [ext_resource type="Script" uid="uid://bflp4isnwoscs" path="res://Enemy/enemy.gd" id="1_xcnyd"]
+[ext_resource type="AudioStream" uid="uid://bxfosiw4j1vs6" path="res://Audio/SoundEffect/RagnarosAttackC.ogg" id="2_3ck2q"]
 [ext_resource type="Texture2D" uid="uid://b85pl07ev3dsh" path="res://Textures/Enemy/ragnaros_sheet.png" id="2_xcnyd"]
+[ext_resource type="AudioStream" uid="uid://d4kgghise3uod" path="res://Audio/SoundEffect/RagnarosDeath.ogg" id="3_1jgsu"]
 [ext_resource type="PackedScene" uid="uid://cv2wtwedw7uk1" path="res://Utility/hurt_box.tscn" id="3_4yker"]
 [ext_resource type="PackedScene" uid="uid://2uh1tenn1so2" path="res://Utility/hit_box.tscn" id="4_0k1sp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xckh2"]
+shader = ExtResource("1_0k1sp")
+shader_parameter/flash_amount = 0.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
 radius = 31.0
@@ -77,9 +84,13 @@ collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_xcnyd")
 hp = 100
+xp_value = 50
 use_directional_animations = true
+hit_sound = ExtResource("2_3ck2q")
+death_sound = ExtResource("3_1jgsu")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=550917710]
+material = SubResource("ShaderMaterial_xckh2")
 texture = ExtResource("2_xcnyd")
 hframes = 5
 vframes = 2

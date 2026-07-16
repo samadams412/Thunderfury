@@ -4,7 +4,7 @@ extends Node2D
 @export var spawns: Array[Spawn_info] = []
 
 @onready var player = get_tree().get_first_node_in_group("player")
-
+@export var xp_orb_scene: PackedScene
 @export var time = 0
 
 signal changetime(time)
@@ -27,8 +27,15 @@ func _on_timer_timeout():
 					var enemy_spawn = new_enemy.instantiate()
 					enemy_spawn.global_position = get_random_position()
 					add_child(enemy_spawn)
+					enemy_spawn.died.connect(_on_enemy_died)
 					counter += 1
-	
+
+func _on_enemy_died(pos: Vector2, xp_value: int) -> void:
+	var orb = xp_orb_scene.instantiate()
+	orb.xp_value = xp_value
+	orb.global_position = pos
+	add_child.call_deferred(orb)
+	orb.collected.connect(player.add_xp)	
 
 func get_random_position():
 	var vpr = get_viewport_rect().size * randf_range(1.1,1.4)
