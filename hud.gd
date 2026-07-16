@@ -3,7 +3,9 @@ extends CanvasLayer
 @onready var hp_bar: ProgressBar = $HPFrame/HPBar
 @onready var level_label: Label = $HPFrame/LevelLabel
 @onready var xp_bar: ProgressBar = $XPBarContainer/XPBar
+@onready var timer_label: Label = $TimerLabel/Text
 
+var spawner: Node = null
 var player: Node = null
 
 func _ready() -> void:
@@ -11,10 +13,14 @@ func _ready() -> void:
 	player.hp_changed.connect(_on_hp_changed)
 	player.xp_changed.connect(_on_xp_changed)
 	player.leveled_up.connect(_on_leveled_up)
+	
+	spawner = get_tree().get_first_node_in_group("spawner")
+	spawner.run_time_changed.connect(_on_run_time_changed)
 
 	_on_hp_changed(player.hp, player.max_hp)
 	_on_xp_changed(player.current_xp, player.xp_to_next_level)
 	_on_leveled_up(player.level)
+	_on_run_time_changed(spawner.time)
 
 func _on_hp_changed(current: int, max_hp: int) -> void:
 	hp_bar.max_value = max_hp
@@ -25,4 +31,9 @@ func _on_xp_changed(current: int, xp_to_next: int) -> void:
 	xp_bar.value = current
 
 func _on_leveled_up(new_level: int) -> void:
-	level_label.text = str(new_level)
+	level_label.text = "Level: %d" %new_level
+
+func _on_run_time_changed(seconds: int) -> void:
+	var minutes := seconds / 60
+	var secs := seconds % 60
+	timer_label.text = "%02d:%02d" % [minutes, secs]

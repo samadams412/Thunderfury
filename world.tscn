@@ -42,12 +42,15 @@ metadata/_custom_type_script = "uid://cabh720n5vqol"
 [node name="World" type="Node2D" unique_id=340984577]
 script = ExtResource("1_pkg7o")
 
-[node name="Background" type="Sprite2D" parent="." unique_id=800145668]
+[node name="ParallaxBackground" type="Parallax2D" parent="." unique_id=195821428]
+repeat_size = Vector2(4000, 4000)
+repeat_times = 2
+
+[node name="Background" type="Sprite2D" parent="ParallaxBackground" unique_id=800145668]
 texture_filter = 2
 texture_repeat = 2
 material = SubResource("ShaderMaterial_g4v7s")
 position = Vector2(-1.9073486e-06, 4.7683716e-07)
-scale = Vector2(0.932, 1.107595)
 texture = ExtResource("3_aqk2v")
 region_enabled = true
 region_rect = Rect2(0, 0, 4000, 4000)

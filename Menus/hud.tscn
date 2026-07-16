@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bi61wy3svb270"]
 
 [ext_resource type="Script" uid="uid://bge5ngsq8jq7m" path="res://hud.gd" id="1_p0pr0"]
+[ext_resource type="Theme" uid="uid://4bejjidht0ni" path="res://Utility/GameTheme.tres" id="2_7gh2x"]
 [ext_resource type="Script" uid="uid://d38lwhurduo7w" path="res://Menus/tick_overlay.gd" id="2_fypj3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57qmd"]
@@ -35,6 +36,25 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_3gngh")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_font_sizes/font_size = 11
+text = "Level: "
+
+[node name="TimerLabel" type="Control" parent="." unique_id=412626737]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme = ExtResource("2_7gh2x")
+
+[node name="Text" type="Label" parent="TimerLabel" unique_id=1449039564]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.425
 
 [node name="XPBarContainer" type="Control" parent="." unique_id=1395857360]
 layout_mode = 3
@@ -52,6 +72,7 @@ anchors_preset = 0
 offset_left = 8.0
 offset_top = -26.0
 offset_right = 1160.0
+offset_bottom = -10.0
 mouse_filter = 2
 script = ExtResource("2_fypj3")
 
@@ -60,8 +81,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -27.0
-offset_right = 1152.0
+offset_left = 1.0
+offset_top = -24.0
+offset_right = 1153.0
+offset_bottom = -1.0
 grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_yf5fn")
 theme_override_styles/fill = SubResource("StyleBoxFlat_g4v7s")

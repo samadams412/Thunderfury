@@ -1,34 +1,35 @@
 extends Node2D
-
-
 @export var spawns: Array[Spawn_info] = []
-
 @onready var player = get_tree().get_first_node_in_group("player")
 @export var xp_orb_scene: PackedScene
 @export var time = 0
-
-signal changetime(time)
+signal run_time_changed(seconds: int)
 
 func _ready():
-	connect("changetime",Callable(player,"change_time"))
+	add_to_group("spawner")
 
 func _on_timer_timeout():
 	time += 1
-	var enemy_spawns = spawns
-	for i in enemy_spawns:
+	run_time_changed.emit(time)
+	for i in spawns:
 		if time >= i.time_start and time <= i.time_end:
 			if i.spawn_delay_counter < i.enemy_spawn_delay:
 				i.spawn_delay_counter += 1
 			else:
 				i.spawn_delay_counter = 0
-				var new_enemy = i.enemy
-				var counter = 0
-				while  counter < i.enemy_num:
-					var enemy_spawn = new_enemy.instantiate()
-					enemy_spawn.global_position = get_random_position()
-					add_child(enemy_spawn)
-					enemy_spawn.died.connect(_on_enemy_died)
-					counter += 1
+				_spawn_batch(i.enemy, i.enemy_num)
+
+func _spawn_batch(enemy_scene: PackedScene, count: int) -> void:
+	for n in count:
+		_spawn_single(enemy_scene)
+		if n % 3 == 2:
+			await get_tree().process_frame
+
+func _spawn_single(enemy_scene: PackedScene) -> void:
+	var enemy_spawn = enemy_scene.instantiate()
+	enemy_spawn.global_position = get_random_position()
+	add_child(enemy_spawn)
+	enemy_spawn.died.connect(_on_enemy_died)
 
 func _on_enemy_died(pos: Vector2, xp_value: int) -> void:
 	var orb = xp_orb_scene.instantiate()
