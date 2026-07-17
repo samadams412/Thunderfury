@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bi61wy3svb270"]
 
-[ext_resource type="Script" uid="uid://bge5ngsq8jq7m" path="res://hud.gd" id="1_p0pr0"]
+[ext_resource type="Script" uid="uid://bge5ngsq8jq7m" path="res://Utility/hud.gd" id="1_p0pr0"]
 [ext_resource type="Theme" uid="uid://4bejjidht0ni" path="res://Utility/GameTheme.tres" id="2_7gh2x"]
 [ext_resource type="Script" uid="uid://d38lwhurduo7w" path="res://Menus/tick_overlay.gd" id="2_fypj3"]
 

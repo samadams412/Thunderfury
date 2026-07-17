@@ -78,9 +78,10 @@ func movement():
 	velocity = mov * movement_speed
 	move_and_slide()
 
+var god_mode: bool = false
 # --- Health & Hurtbox Logic ---
 func _on_hurt_box_hurt(damage):
-	if is_dead:
+	if is_dead or god_mode:
 		return
 
 	hp -= damage

@@ -25,6 +25,7 @@ buses/default_bus_layout="uid://c7le7easwdmt8"
 [autoload]
 
 SoundManager="*uid://cnthrpigb2scc"
+DebugTools="*uid://dcurwngmi7lnu"
 
 [global_group]
 

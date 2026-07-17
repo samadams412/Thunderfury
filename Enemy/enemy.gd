@@ -22,6 +22,7 @@ func flash_hit() -> void:
 signal died(position: Vector2, xp_value: int)
 
 func _ready():
+	add_to_group("enemy")
 	sprite_material = sprite.material.duplicate()
 	sprite.material = sprite_material
 	

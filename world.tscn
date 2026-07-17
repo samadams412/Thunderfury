@@ -25,6 +25,7 @@
 [ext_resource type="Resource" uid="uid://d3v4htgwlb7tq" path="res://Upgrades/upgrade_movement_speed.tres" id="23_o3ebs"]
 [ext_resource type="Resource" uid="uid://b5rwd28fxurfr" path="res://Upgrades/upgrade_weapon_pierce_count.tres" id="24_k83mh"]
 [ext_resource type="PackedScene" uid="uid://fudtledl0kb3" path="res://Upgrades/upgrade_card_ui.tscn" id="25_qktwf"]
+[ext_resource type="PackedScene" uid="uid://pvwjb2lv1lva" path="res://debug_overlay.tscn" id="26_bo7i5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("1_aqk2v")
@@ -79,10 +80,12 @@ offset_right = 1151.0
 offset_bottom = 651.0
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu/Control" unique_id=2147409494]
-layout_mode = 0
-offset_left = -1.0
-offset_right = 1150.0
-offset_bottom = 648.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 0.4862745)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Control" unique_id=1161526059]
@@ -167,6 +170,9 @@ script = ExtResource("15_hiqwa")
 script = ExtResource("20_mc2jv")
 upgrade_pool = Array[ExtResource("21_bo7i5")]([ExtResource("22_4h6ng"), ExtResource("23_o3ebs"), ExtResource("24_k83mh")])
 upgrade_card_scene = ExtResource("25_qktwf")
+
+[node name="DebugOverlay" parent="." unique_id=877564126 instance=ExtResource("26_bo7i5")]
+visible = false
 
 [connection signal="pressed" from="PauseMenu/Control/VBoxContainer/Resume" to="PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseMenu/Control/VBoxContainer/Settings" to="PauseMenu" method="_on_settings_pressed"]
