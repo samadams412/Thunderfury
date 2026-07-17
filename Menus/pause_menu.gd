@@ -8,22 +8,19 @@ func _ready():
 	menu_container.visible = false
 
 func _input(event):
-	# Toggle pause with the "ui_cancel" (Esc key)
 	if event.is_action_pressed("ui_cancel"):
-		toggle_pause()
+		if settings_menu.visible:
+			_close_settings()
+		else:
+			toggle_pause()
 
 func toggle_pause():
-	# Toggle pause status
-	get_tree().paused = !get_tree().paused
+	var world = get_tree().current_scene
+	world.set_game_state(get_tree().paused)  # note: inverted, since paused is about to flip
 	menu_container.visible = get_tree().paused
-	if get_tree().paused:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	else:
-		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _on_resume_pressed():
-	get_tree().paused = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	get_tree().current_scene.set_game_state(true)
 	menu_container.visible = false
 
 
@@ -38,6 +35,9 @@ func _on_confirmation_dialog_confirmed():
 func _on_confirmation_dialog_canceled():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
+func _close_settings():
+	settings_menu.hide()
+	menu_container.show()
 
 func _on_settings_pressed():
 	menu_container.hide()
@@ -45,4 +45,4 @@ func _on_settings_pressed():
 
 
 func _on_settings_menu_closed():
-	menu_container.show()
+	_close_settings()

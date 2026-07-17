@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="UpgradeMovementSpeed" format=3 uid="uid://d3v4htgwlb7tq"]
+
+[ext_resource type="Texture2D" uid="uid://go6eq1ofx5jc" path="res://Textures/Items/Upgrades/ability_rogue_sprint.jpg" id="1_hqugi"]
+[ext_resource type="Script" uid="uid://8vioaemq7bto" path="res://Upgrades/upgrade_movement_speed.gd" id="1_nncbq"]
+
+[resource]
+script = ExtResource("1_nncbq")
+display_name = "Increase Movement Speed"
+description = "Increase Movement Speed by 8%"
+icon = ExtResource("1_hqugi")
+max_stacks = 5
+metadata/_custom_type_script = "uid://8vioaemq7bto"

@@ -6,7 +6,7 @@ func _ready():
 	
 func set_game_state(is_playing: bool):
 	if is_playing:
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 		get_tree().paused = false
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -16,6 +16,5 @@ func _notification(what):
 	if what == NOTIFICATION_WM_WINDOW_FOCUS_OUT:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	elif what == NOTIFICATION_WM_WINDOW_FOCUS_IN:
-		# Only hide the mouse if we aren't paused!
 		if not get_tree().paused:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN

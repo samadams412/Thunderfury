@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var movement_speed = 20.0
 @export var hp = 10
 @export var xp_value: int = 1
-# Set this to true for Ragnaros, false for the Goblin in the Inspector
+# Set this to true for Ragnaros, false for the Goblin 
 @export var use_directional_animations : bool = false 
 @export var hit_sound: AudioStream
 @export var death_sound: AudioStream

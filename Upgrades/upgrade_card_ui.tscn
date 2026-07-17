@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://fudtledl0kb3"]
+
+[ext_resource type="Script" uid="uid://bdnrgtytyw7xl" path="res://Upgrades/upgrade_card_ui.gd" id="1_cjbve"]
+[ext_resource type="Theme" uid="uid://4bejjidht0ni" path="res://Utility/GameTheme.tres" id="2_883hd"]
+
+[node name="UpgradeCardUI" type="CanvasLayer" unique_id=1698209548]
+process_mode = 3
+script = ExtResource("1_cjbve")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1986592494]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_883hd")
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="Card1" type="PanelContainer" parent="HBoxContainer" unique_id=1586136605]
+custom_minimum_size = Vector2(240, 400)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Card1" unique_id=708783311]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Card1/VBoxContainer" unique_id=861327455]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="HBoxContainer/Card1/VBoxContainer" unique_id=2078032482]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="DescLabel" type="Label" parent="HBoxContainer/Card1/VBoxContainer" unique_id=2033583761]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="HBoxContainer/Card1/VBoxContainer" unique_id=656323665]
+custom_minimum_size = Vector2(160, 44)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Select"
+
+[node name="Card2" type="PanelContainer" parent="HBoxContainer" unique_id=340044342]
+custom_minimum_size = Vector2(240, 400)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Card2" unique_id=1310289805]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Card2/VBoxContainer" unique_id=619550763]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="HBoxContainer/Card2/VBoxContainer" unique_id=1897006476]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="DescLabel" type="Label" parent="HBoxContainer/Card2/VBoxContainer" unique_id=748046319]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="HBoxContainer/Card2/VBoxContainer" unique_id=121054138]
+custom_minimum_size = Vector2(160, 44)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Select"
+
+[node name="Card3" type="PanelContainer" parent="HBoxContainer" unique_id=774818312]
+custom_minimum_size = Vector2(240, 400)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Card3" unique_id=607380408]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Card3/VBoxContainer" unique_id=293602325]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="HBoxContainer/Card3/VBoxContainer" unique_id=672668170]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="DescLabel" type="Label" parent="HBoxContainer/Card3/VBoxContainer" unique_id=648979547]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="HBoxContainer/Card3/VBoxContainer" unique_id=727652586]
+custom_minimum_size = Vector2(160, 44)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Select"

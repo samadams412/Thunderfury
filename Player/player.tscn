@@ -119,6 +119,7 @@ _data = {
 z_index = 1
 motion_mode = 1
 script = ExtResource("1_btcbx")
+max_hp = 25
 level_up_sound = ExtResource("2_x3vf3")
 hit_sound = ExtResource("2_vtle1")
 death_sound = ExtResource("3_od3ui")
@@ -151,17 +152,6 @@ collision_mask = 2
 position = Vector2(-0.5, 2.5)
 shape = SubResource("RectangleShape2D_gwnis")
 
-[node name="Attack" type="Node2D" parent="." unique_id=948010632]
-visible = false
-
-[node name="IceSpearTimer" type="Timer" parent="Attack" unique_id=1527124751]
-unique_name_in_owner = true
-wait_time = 1.5
-
-[node name="IceSpearAttackTimer" type="Timer" parent="Attack/IceSpearTimer" unique_id=1699415153]
-unique_name_in_owner = true
-wait_time = 0.075
-
 [node name="EnemyDetectionArea" type="Area2D" parent="." unique_id=1871256866]
 visible = false
 collision_layer = 4
@@ -170,11 +160,6 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionArea" unique_id=281053506]
 shape = SubResource("CircleShape2D_g4v7s")
-
-[node name="AimPoint" type="Marker2D" parent="." unique_id=1639080065]
-visible = false
-position = Vector2(15, 3)
-rotation = -1.5707964
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1982486513]
 libraries/ = SubResource("AnimationLibrary_fhl08")
@@ -191,8 +176,6 @@ fire_rate = 0.6
 position = Vector2(-4, -78)
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
-[connection signal="timeout" from="Attack/IceSpearTimer" to="." method="_on_ice_spear_timer_timeout"]
-[connection signal="timeout" from="Attack/IceSpearTimer/IceSpearAttackTimer" to="." method="_on_ice_spear_attack_timer_timeout"]
 [connection signal="body_entered" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_entered"]
 [connection signal="body_exited" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_exited"]
 

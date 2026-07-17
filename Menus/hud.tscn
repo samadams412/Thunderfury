@@ -24,11 +24,13 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 140.0
 offset_bottom = 48.0
+theme = ExtResource("2_7gh2x")
 
 [node name="HPBar" type="ProgressBar" parent="HPFrame" unique_id=1724477685]
 layout_mode = 0
 offset_right = 140.0
 offset_bottom = 27.0
+theme_override_font_sizes/font_size = 18
 theme_override_styles/background = SubResource("StyleBoxFlat_57qmd")
 theme_override_styles/fill = SubResource("StyleBoxFlat_3gngh")
 
@@ -36,7 +38,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_3gngh")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 15
 text = "Level: "
 
 [node name="TimerLabel" type="Control" parent="." unique_id=412626737]
@@ -65,26 +67,26 @@ anchor_bottom = 1.0
 offset_right = -1152.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("2_7gh2x")
 
 [node name="TickOverlay" type="Control" parent="XPBarContainer" unique_id=1067232083]
 layout_mode = 1
 anchors_preset = 0
 offset_left = 8.0
-offset_top = -26.0
+offset_top = -17.0
 offset_right = 1160.0
-offset_bottom = -10.0
 mouse_filter = 2
 script = ExtResource("2_fypj3")
 
 [node name="XPBar" type="ProgressBar" parent="XPBarContainer" unique_id=1097024743]
+z_index = -1
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 1.0
-offset_top = -24.0
+offset_top = -17.0
 offset_right = 1153.0
-offset_bottom = -1.0
 grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_yf5fn")
 theme_override_styles/fill = SubResource("StyleBoxFlat_g4v7s")

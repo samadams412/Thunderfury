@@ -9,8 +9,8 @@ func _ready():
 	var anim_node = $Sprite2D
 	anim_node.play("lightning")
 	
-	await get_tree().create_timer(20.0).timeout
-	print("Timer finished, calling queue_free()")
+	await get_tree().create_timer(5.0, false).timeout
+	#print("Timer finished, calling queue_free()")
 	queue_free()
 	
 #func _process(_delta):

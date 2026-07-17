@@ -65,7 +65,7 @@ collision_layer = 5
 collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_px1sc")
-xp_value = 50
+xp_value = 150
 hit_sound = ExtResource("2_5a0d5")
 death_sound = ExtResource("3_s6h0u")
 

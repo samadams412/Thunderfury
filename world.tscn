@@ -19,6 +19,12 @@
 [ext_resource type="Script" uid="uid://cueio0uvxseki" path="res://Audio/Music/music_player.gd" id="15_hiqwa"]
 [ext_resource type="PackedScene" uid="uid://bvuce28vbd74q" path="res://Menus/settings_menu.tscn" id="15_ikiii"]
 [ext_resource type="PackedScene" uid="uid://bi61wy3svb270" path="res://Menus/hud.tscn" id="19_cbp6q"]
+[ext_resource type="Script" uid="uid://b3s228rsugcfo" path="res://Upgrades/upgrade_manager.gd" id="20_mc2jv"]
+[ext_resource type="Script" uid="uid://hfa3w5v2cdg4" path="res://Upgrades/Upgrade.gd" id="21_bo7i5"]
+[ext_resource type="Resource" uid="uid://g6411ffgumtu" path="res://Upgrades/upgrade_max_hp.tres" id="22_4h6ng"]
+[ext_resource type="Resource" uid="uid://d3v4htgwlb7tq" path="res://Upgrades/upgrade_movement_speed.tres" id="23_o3ebs"]
+[ext_resource type="Resource" uid="uid://b5rwd28fxurfr" path="res://Upgrades/upgrade_weapon_pierce_count.tres" id="24_k83mh"]
+[ext_resource type="PackedScene" uid="uid://fudtledl0kb3" path="res://Upgrades/upgrade_card_ui.tscn" id="25_qktwf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("1_aqk2v")
@@ -156,6 +162,11 @@ bus = &"Music"
 script = ExtResource("15_hiqwa")
 
 [node name="HUD" parent="." unique_id=1080144834 instance=ExtResource("19_cbp6q")]
+
+[node name="UpgradeManager" type="Node" parent="." unique_id=1831920915]
+script = ExtResource("20_mc2jv")
+upgrade_pool = Array[ExtResource("21_bo7i5")]([ExtResource("22_4h6ng"), ExtResource("23_o3ebs"), ExtResource("24_k83mh")])
+upgrade_card_scene = ExtResource("25_qktwf")
 
 [connection signal="pressed" from="PauseMenu/Control/VBoxContainer/Resume" to="PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseMenu/Control/VBoxContainer/Settings" to="PauseMenu" method="_on_settings_pressed"]

@@ -4,7 +4,7 @@ extends Node2D
 @onready var spawn_point = $SpawnPoint
 @export var fire_rate : float = 0.5
 @onready var fire_rate_timer = $FireRateTimer
-
+@export var pierce_count : int = 1
 
 var is_facing_right : bool = false 
 
@@ -47,7 +47,8 @@ func fire(owner_player : Node2D):
 	var proj = projectile_scene.instantiate()
 	proj.my_player = owner_player
 	proj.global_position = spawn_pos
-	#proj.global_position = spawn_point.global_position
+	proj.pierce_count = pierce_count
+	
 	
 	get_tree().root.add_child(proj)
 	

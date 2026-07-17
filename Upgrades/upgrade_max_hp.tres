@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="UpgradeMaxHP" format=3 uid="uid://g6411ffgumtu"]
+
+[ext_resource type="Script" uid="uid://csqdh2aunnkbg" path="res://Upgrades/upgrade_max_hp.gd" id="1_vj858"]
+[ext_resource type="Texture2D" uid="uid://mxhs77mgmqyy" path="res://Textures/Items/Upgrades/spell_holy_flashheal.jpg" id="1_yp5qk"]
+
+[resource]
+script = ExtResource("1_vj858")
+display_name = "Upgrade Max HP"
+description = "Upgrade Players Max HP +8%"
+icon = ExtResource("1_yp5qk")
+max_stacks = 5
+metadata/_custom_type_script = "uid://csqdh2aunnkbg"
